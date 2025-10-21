@@ -190,6 +190,36 @@ namespace Kaloriaszamlalo
 
                 intensityLevels[i] = level;
             }
+
+            // 3. Kiíratás
+
+            double totalTrainingTime = 0.0;
+
+            Console.WriteLine("\n\n Heti edzésterhelés számítása");
+
+            for (int i = 0; i < trainingDays; i++)
+            {
+
+                double dailyTrainingTime = baseDuration * (1.0 + 0.1 * intensityLevels[i]);
+                totalTrainingTime += dailyTrainingTime;
+
+                Console.WriteLine($"- {i + 1}. nap (Erősség: {intensityLevels[i]}): {dailyTrainingTime:F2} perc");
+            }
+
+
+            double totalCaloriesBurned = weight * totalTrainingTime * calorieMultiplier;
+
+            Console.WriteLine("\n ÖSSZEGZÉS");
+            Console.WriteLine($"Felhasználó: {name}");
+            Console.WriteLine($"Testsúly: {weight:F1} kg");
+            Console.WriteLine($"Heti edzésnapok száma: {trainingDays}");
+            Console.WriteLine($"Teljes heti edzésidő: {totalTrainingTime:F2} perc");
+            Console.WriteLine($"Becsült elégetett kalória: {totalCaloriesBurned:F2} kcal");
+            Console.WriteLine("");
+
+            Console.ReadKey();
+
+        
         }
     }
 }
