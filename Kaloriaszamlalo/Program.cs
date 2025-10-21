@@ -218,8 +218,6 @@ namespace Kaloriaszamlalo
             Console.WriteLine("");
 
             Console.ReadKey();
-
-        
         }
     }
 }
